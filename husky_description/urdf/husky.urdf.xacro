@@ -227,7 +227,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 	<!-- stereo camera plugin -->
 	<gazebo reference="stereo_camera_link">
 	    <sensor type="multicamera" name="stereo_camera">
-	      <update_rate>20.0</update_rate>
+	      <update_rate>1.0</update_rate>
 	      <camera name="left">
 		<pose>0 0.15 0 0 0 0</pose>
 		<horizontal_fov>1.3962634</horizontal_fov>
@@ -266,7 +266,7 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 	      </camera>
 	      <plugin name="stereo_camera_controller" filename="libgazebo_ros_multicamera.so">
 		<alwaysOn>true</alwaysOn>
-		<updateRate>20.0</updateRate>
+		<updateRate>1.0</updateRate>
 		<imageTopicName>stereo_camera/image_raw</imageTopicName>
 		<hackBaseline>0.07</hackBaseline>
 		<distortionK1>-0.173319</distortionK1>
@@ -278,6 +278,18 @@ ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSI
 	    </sensor>
 	  </gazebo>
 
+<gazebo>
+  <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+    <alwaysOn>true</alwaysOn>
+    <updateRate>50.0</updateRate>
+    <bodyName>base_link</bodyName>
+    <topicName>ground_truth/state</topicName>
+    <gaussianNoise>0.01</gaussianNoise>
+    <frameName>world</frameName>
+    <xyzOffsets>0 0 0</xyzOffsets>
+    <rpyOffsets>0 0 0</rpyOffsets>
+  </plugin>
+</gazebo>
 
   <!-- Optional custom includes. -->
   <xacro:include filename="$(arg urdf_extras)" />

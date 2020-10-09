@@ -38,13 +38,13 @@
               <min_height>0.5</min_height>
               <fade_dist>1.0</fade_dist>
             </blend>
-<!--
+
             <texture>
               <diffuse>model://heightmap_mars/materials/textures/mars_tex3.jpg</diffuse>
               <normal>file://media/materials/textures/flat_normal.png</normal>
               <size>10</size>
             </texture>
--->
+
             <uri>model://heightmap_mars/materials/textures/marssmall.jpg</uri>
             <size>100 100 15</size>
             <pos>0 -4 0</pos>
